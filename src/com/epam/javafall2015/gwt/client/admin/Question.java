@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
@@ -30,7 +31,7 @@ public class Question extends Composite {
 	      list.addItem("Группа " + i);
 	    }
 		
-		Label lbl2 = new Label("Введите варианты ответа");
+		Label lbl2 = new Label("Введите варианты ответа. Напротив ответа введите его вес для данной группы");
 		
 		Button btnAddAnswer = new Button();
 		btnAddAnswer.setText("Добавить ответ");
@@ -39,13 +40,16 @@ public class Question extends Composite {
 		Button btnRemoveQuestion = new Button();
 		btnRemoveQuestion.setText("Удалить вопрос");
 		btnRemoveQuestion.addClickHandler(new RQBtnClickHandler());
+		
+		HorizontalPanel hPanel = new HorizontalPanel();
+		hPanel.add(btnAddAnswer);
+		hPanel.add(btnRemoveQuestion);
 
 		this.vPanel.add(lbl1);
 		vPanel.add(txt);
 		vPanel.add(list);
 		vPanel.add(lbl2);
-		vPanel.add(btnAddAnswer);
-		vPanel.add(btnRemoveQuestion);
+		vPanel.add(hPanel);
 	}
 	
 	private class AABtnClickHandler implements ClickHandler{
