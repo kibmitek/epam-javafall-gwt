@@ -6,6 +6,7 @@ import com.epam.javafall2015.gwt.client.admin.TestQuestionary;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 public class MainView extends Composite {
 
@@ -51,8 +52,12 @@ public class MainView extends Composite {
 	}
 	
 	public void openOneMoreQuestion(){
-		Question question = new Question();
+		Question question = new Question(this);
 		this.contentPanel.add(question);
+	}
+	
+	public void removeWidget(Widget widget){
+		this.contentPanel.remove(widget);
 	}
 	
 }

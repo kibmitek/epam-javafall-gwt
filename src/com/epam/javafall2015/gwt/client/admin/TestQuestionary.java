@@ -10,15 +10,16 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class TestQuestionary extends Composite {
 	VerticalPanel vPanel = new VerticalPanel();
-	private MainView main;
+	MainView main;
 	
 	public TestQuestionary(MainView main) {
-		initWidget(this.vPanel);
+		initWidget(vPanel);
 		this.main = main;
 		
 		Label lbl = new Label("Вопросник");
 		Button btn = new Button();
 		btn.setText("Добавить вопрос");
+		btn.addClickHandler(new AddQuestionHandler());
 		
 		vPanel.add(lbl);
 		vPanel.add(btn);
@@ -29,6 +30,5 @@ public class TestQuestionary extends Composite {
 		public void onClick(ClickEvent event) {
 			main.openOneMoreQuestion();
 		}
-		
 	}
 }
