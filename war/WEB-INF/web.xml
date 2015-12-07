@@ -9,7 +9,7 @@
   
   <!-- Default page to serve -->
   <welcome-file-list>
-    <welcome-file>Gwt_project_4.html</welcome-file>
+    <welcome-file>epam-javafall-gwt.html</welcome-file>
   </welcome-file-list>
 
 </web-app>

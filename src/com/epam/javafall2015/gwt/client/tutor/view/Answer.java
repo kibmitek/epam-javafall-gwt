@@ -1,4 +1,4 @@
-package com.epam.javafall2015.gwt.client.admin;
+package com.epam.javafall2015.gwt.client.tutor.view;
 
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
