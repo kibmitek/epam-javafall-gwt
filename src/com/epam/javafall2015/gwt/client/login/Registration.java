@@ -73,7 +73,7 @@ public class Registration extends Composite {
 		VerticalPanel verticalPanel_1 = new VerticalPanel();
 		verticalPanel.add(verticalPanel_1);
 
-		Label lblChooseLogin = new Label("Choose login:");
+		Label lblChooseLogin = new Label("Enter login:");
 		lblChooseLogin.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 		lblChooseLogin.setStyleName("gwt-Label-Login");
 		verticalPanel_1.add(lblChooseLogin);
@@ -88,7 +88,7 @@ public class Registration extends Composite {
 		VerticalPanel verticalPanel_3 = new VerticalPanel();
 		verticalPanel.add(verticalPanel_3);
 
-		Label lblYourPassword = new Label("Your password:");
+		Label lblYourPassword = new Label("Enter password:");
 		lblYourPassword.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 		lblYourPassword.setStyleName("gwt-Label-Login");
 		verticalPanel_3.add(lblYourPassword);
