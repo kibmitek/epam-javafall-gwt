@@ -27,7 +27,7 @@ public class LoginServlet extends AdvancedServlet implements LoginService {
 		//check passwords
 		// *** Test Code ****
 		UserDTO user = new UserDTO();
-		if(email.contains("user") || email.contains("admin")){
+		if(email.contains("tutor") || email.contains("student")){
 			user.setEmail(email);
 			user.setId(12);
 			user.setLogin("NameFromDb");

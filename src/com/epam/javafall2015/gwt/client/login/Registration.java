@@ -1,6 +1,7 @@
 package com.epam.javafall2015.gwt.client.login;
 
 import java.util.Random;
+import java.util.UUID;
 
 import com.epam.javafall2015.gwt.client.login.request.RegistrationService;
 import com.epam.javafall2015.gwt.client.login.request.RegistrationServiceAsync;
@@ -18,6 +19,7 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.SubmitButton;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.sun.xml.internal.fastinfoset.algorithm.UUIDEncodingAlgorithm;
 import com.google.gwt.user.client.ui.FormPanel.SubmitEvent;
 import com.google.gwt.user.client.ui.FormPanel.SubmitHandler;
 import com.google.gwt.user.client.ui.ValueBoxBase.TextAlignment;
@@ -27,7 +29,6 @@ public class Registration extends Composite {
 	private PasswordTextBox password;
 	private PasswordTextBox repeatPassword;
 	private SubmitButton submitButton;
-	private long uuid;
 
 	private final RegistrationServiceAsync registrationService = GWT.create(RegistrationService.class);
 
@@ -113,7 +114,7 @@ public class Registration extends Composite {
 		repeatPassword.setWidth("202px");
 
 		submitButton = new SubmitButton();
-		submitButton.setText("Register!");
+		submitButton.setText("Submit");
 		submitButton.setStyleName("gwt-Label-Login");
 		verticalPanel.add(submitButton);
 		verticalPanel.setCellHorizontalAlignment(submitButton, HasHorizontalAlignment.ALIGN_RIGHT);
@@ -128,8 +129,6 @@ public class Registration extends Composite {
 			}
 
 			private void submit() {
-				Random rand = new Random();
-				uuid = rand.nextLong();
 				registrationService.submit(getLogin().getText(), getPassword().getValue(),
 						new AsyncCallback<RegistrationToken>() {
 					public void onFailure(Throwable caught) {
