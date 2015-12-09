@@ -1,15 +1,13 @@
 package com.epam.javafall2015.gwt.shared;
 
-import java.util.UUID;
-
 import com.google.gwt.user.client.rpc.IsSerializable;
 
 public class RegistrationToken implements IsSerializable {
-	private UUID id;
+	private String id;
 	private String login;
 	private String password;
 	
-	public UUID getId(){
+	public String getId(){
 		return id;
 	}
 	public String getLogin(){
@@ -18,7 +16,7 @@ public class RegistrationToken implements IsSerializable {
 	public String getPassword(){
 		return password;
 	}
-	public void setId(UUID id){
+	public void setId(String id){
 		this.id = id;
 	}
 	public void setLogin(String login){

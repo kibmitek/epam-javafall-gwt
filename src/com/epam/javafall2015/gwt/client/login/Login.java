@@ -86,7 +86,7 @@ public class Login implements EntryPoint {
 			
 			public void onSuccess(UserDTO user) {
 				if(user == null){
-					loginView.getMessage().setWidget(new HTML("Wrong! try Email: user / admin"));
+					loginView.getMessage().setWidget(new HTML("Wrong! login: tutor / student"));
 					enableLogin();
 				} else if (user.getEmail().equals("tutor")) {
 						Window.Location.assign("/tutor/");

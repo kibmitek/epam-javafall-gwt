@@ -1,6 +1,6 @@
 package com.epam.javafall2015.gwt.client.tutor.view;
 
-import com.epam.javafall2015.gwt.client.MainView;
+import com.epam.javafall2015.gwt.client.tutor.MainView;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;

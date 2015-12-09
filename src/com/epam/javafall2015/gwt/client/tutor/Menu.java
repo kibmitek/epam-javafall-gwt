@@ -1,4 +1,4 @@
-package com.epam.javafall2015.gwt.client;
+package com.epam.javafall2015.gwt.client.tutor;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;

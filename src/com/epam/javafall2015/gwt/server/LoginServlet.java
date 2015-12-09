@@ -1,13 +1,12 @@
 package com.epam.javafall2015.gwt.server;
 
-import java.util.Random;
-
 import com.epam.javafall2015.gwt.client.login.request.LoginService;
+import com.epam.javafall2015.gwt.shared.GUID;
 import com.epam.javafall2015.gwt.shared.UserDTO;
 
 public class LoginServlet extends AdvancedServlet implements LoginService {
 
-	private long uuid;
+	private String uuid;
 
 	/**
 	 * 
@@ -27,9 +26,10 @@ public class LoginServlet extends AdvancedServlet implements LoginService {
 		//check passwords
 		// *** Test Code ****
 		UserDTO user = new UserDTO();
+		uuid = GUID.get();
 		if(email.contains("tutor") || email.contains("student")){
 			user.setEmail(email);
-			user.setId(12);
+			user.setId(1);
 			user.setLogin("NameFromDb");
 			
 			//set the current_user for this session

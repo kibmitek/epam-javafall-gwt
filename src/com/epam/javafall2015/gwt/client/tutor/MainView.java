@@ -1,4 +1,4 @@
-package com.epam.javafall2015.gwt.client;
+package com.epam.javafall2015.gwt.client.tutor;
 
 import com.epam.javafall2015.gwt.client.tutor.view.Question;
 import com.epam.javafall2015.gwt.client.tutor.view.TestDescription;
