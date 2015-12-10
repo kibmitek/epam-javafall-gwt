@@ -18,7 +18,8 @@ public class RegistrationServlet extends RemoteServiceServlet implements Registr
 		RegistrationToken token = new RegistrationToken();
 		token.setId(uuid);
 		token.setLogin(login);
-		token.setPassword(password);
+		token.setPassword(password);//should be hash already
+		//another fields
 		return token;
 	}
 }

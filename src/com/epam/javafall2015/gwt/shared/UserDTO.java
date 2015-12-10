@@ -25,4 +25,5 @@ public class UserDTO implements IsSerializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 }
