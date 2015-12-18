@@ -1,11 +1,9 @@
-package com.epam.javafall2015.gwt.client.login;
+package com.epam.javafall2015.gwt.client.registration;
 
 import java.util.Random;
 import java.util.UUID;
 
-import com.epam.javafall2015.gwt.client.login.request.RegistrationService;
-import com.epam.javafall2015.gwt.client.login.request.RegistrationServiceAsync;
-import com.epam.javafall2015.gwt.shared.RegistrationToken;
+import com.epam.javafall2015.gwt.shared.UserDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -24,7 +22,7 @@ import com.google.gwt.user.client.ui.FormPanel.SubmitEvent;
 import com.google.gwt.user.client.ui.FormPanel.SubmitHandler;
 import com.google.gwt.user.client.ui.ValueBoxBase.TextAlignment;
 
-public class Registration extends Composite {
+public class RegistrationClientImpl extends Composite implements RegistrationClientInt{
 	private TextBox login;
 	private PasswordTextBox password;
 	private PasswordTextBox repeatPassword;
@@ -50,7 +48,7 @@ public class Registration extends Composite {
 	public void setRepeatPassword(PasswordTextBox repeatPassword) {
 		this.repeatPassword = repeatPassword;
 	}
-	public Registration() {
+	public RegistrationClientImpl() {
 		final FormPanel formPanel = new FormPanel();
 		formPanel.setStyleName("gwt-Label-Login");
 		formPanel.setMethod(FormPanel.METHOD_POST);
@@ -123,30 +121,36 @@ public class Registration extends Composite {
 			public void onSubmit(SubmitEvent event) {
 				if (getPassword().getText().equals(getRepeatPassword().getValue()) & !getLogin().getText().equals("")
 						& !getPassword().getValue().equals("")) {
-					submit();
+					//submit();
 				} else
 					Window.alert("Complete form first! \nProvide login details and make sure that passwords are same");
 			}
 
-			private void submit() {
-				registrationService.submit(getLogin().getText(), getPassword().getValue(),
-						new AsyncCallback<RegistrationToken>() {
-					public void onFailure(Throwable caught) {
-						simplePanel.setWidget(new HTML("That... was a mistake! \n" + caught.getMessage()));
-						Window.alert("That... was a mistake! \n" + caught.getMessage());
-					}
-
-					public void onSuccess(RegistrationToken token) {
-						if (token == null) {
-							simplePanel.setWidget(new HTML("???? Success registration with null ???"));
-							Window.alert("???? Success registration with null ???");
-						} else
-							simplePanel.setWidget(new HTML("Registration Succesfull! Please login with this credentials"));
-							Window.alert("Registration Succesfull! Please login with this credentials");
-							formPanel.getParent().getParent().setVisible(false);
-					}
-				});
-			}
+//			private void submit() {
+//				registrationService.submit(getLogin().getText(), getPassword().getValue(),
+//						new AsyncCallback<UserDTO>() {
+//					public void onFailure(Throwable caught) {
+//						simplePanel.setWidget(new HTML("That... was a mistake! \n" + caught.getMessage()));
+//						Window.alert("That... was a mistake! \n" + caught.getMessage());
+//					}
+//
+//					public void onSuccess(UserDTO token) {
+//						if (token == null) {
+//							simplePanel.setWidget(new HTML("???? Success registration with null ???"));
+//							Window.alert("???? Success registration with null ???");
+//						} else
+//							simplePanel.setWidget(new HTML("Registration Succesfull! Please login with this credentials"));
+//							Window.alert("Registration Succesfull! Please login with this credentials");
+//							formPanel.getParent().getParent().setVisible(false);
+//					}
+//				});
+//			}
 		});
+	}
+	
+	@Override
+	public UserDTO submit(String login, String email, String password, String firstName, String lastName, String gender) {
+		
+		return null;
 	}
 }

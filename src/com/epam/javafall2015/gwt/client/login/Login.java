@@ -2,6 +2,7 @@ package com.epam.javafall2015.gwt.client.login;
 import com.epam.javafall2015.gwt.client.login.request.LoginService;
 import com.epam.javafall2015.gwt.client.login.request.LoginServiceAsync;
 import com.epam.javafall2015.gwt.client.login.view.LoginView;
+import com.epam.javafall2015.gwt.client.registration.RegistrationClientImpl;
 import com.epam.javafall2015.gwt.shared.UserDTO;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -57,7 +58,7 @@ public class Login implements EntryPoint {
 		loginView.getRegisterLink().addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				PopupPanel pp = new PopupPanel(true);
-				pp.setWidget(new Registration());
+				pp.setWidget(new RegistrationClientImpl());
 				pp.center();
 			}
 		});

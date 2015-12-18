@@ -14,7 +14,7 @@ public class UseJDBC {
 
 	public static void main(String[] args) {
 		JDBCHelper helper = new JDBCHelper();
-		ResultSet rs = helper.executeQuery("select now()");
+		//ResultSet rs = helper.executeQuery("select now()");
 		
 		
 		
