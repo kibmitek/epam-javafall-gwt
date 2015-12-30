@@ -1,7 +1,5 @@
 package com.epam.javafall2015.gwt.shared;
 
-import java.sql.Statement;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,26 +32,30 @@ public class JDBCHelper {
 		return false;
 	}
 
-//	public ResultSet executeQuery(String query){
-//		Connection connection = JDBCConnection.getConnection();
-//		try{
-//			Statement statement = connection.createStatement();
-//			ResultSet rs = statement.executeQuery(query);
-//			printRS(rs);
-//			return rs;
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		finally{
-//			try {
-//				//rs.close();
-//				connection.close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		return null;
-//	}
+	public String getStoredPasswordField(String login){
+		Connection connection = JDBCConnection.getConnection();
+		final String query = "SELECT password FROM users WHERE login = ?";
+		PreparedStatement ps;
+		try {
+			ps = connection.prepareStatement(query);
+			ps.setString(1, login);
+			final ResultSet resultSet = ps.executeQuery();
+			if(resultSet.next()){
+				String pass =  resultSet.toString();
+				resultSet.close();//prevents memory leaks
+				return pass;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 	
 	public void printRS(ResultSet rs){
 		try{
@@ -75,15 +77,15 @@ public class JDBCHelper {
 			ps = connection.prepareStatement(query);
 			ps.setString(1, user.getLogin());
 			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getFirstName());
-			ps.setString(4, user.getLastName());
-			ps.setString(5, user.getGender());
-			ps.setString(6, user.getRole());
+			ps.setString(3, user.getPassword());
+			ps.setString(4, user.getFirstName());
+			ps.setString(5, user.getLastName());
+			ps.setString(6, user.getGender());
+			ps.setString(7, user.getRole());
 			
 			final ResultSet resultSet = ps.executeQuery();
 			if(resultSet.next()){
 				resultSet.close();//prevents memory leaks
-				//return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,8 +96,5 @@ public class JDBCHelper {
 				e.printStackTrace();
 			}
 		}
-		
-		
-		
 	}
 }

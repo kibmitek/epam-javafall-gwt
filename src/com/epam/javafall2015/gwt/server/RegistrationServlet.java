@@ -1,31 +1,12 @@
 package com.epam.javafall2015.gwt.server;
 
 import com.epam.javafall2015.gwt.client.registration.RegistrationService;
-import com.epam.javafall2015.gwt.shared.GUID;
 import com.epam.javafall2015.gwt.shared.JDBCHelper;
 import com.epam.javafall2015.gwt.shared.UserDTO;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 public class RegistrationServlet extends RemoteServiceServlet implements RegistrationService {
 	
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = 1L;
-	//private String uuid;
-
-	public UserDTO submit(String login, String password) {
-		//
-		
-		//uuid = GUID.get();
-		UserDTO user = new UserDTO();
-		//token.setId(uuid);
-		user.setLogin(login);
-		user.setPassword(password);//should be hash already
-		//another fields
-		return user;
-	}
-
 	@Override
 	public UserDTO submit(String login, String email, String password, String firstName, String lastName, String gender) {
 	
@@ -55,7 +36,7 @@ public class RegistrationServlet extends RemoteServiceServlet implements Registr
 		UserDTO user = new UserDTO();
 		user.setLogin(login);
 		user.setEmail(email);
-		user.setPassword(password);//TODO: take hash? or later?
+		user.setPassword(password);
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
 		user.setGender(gender);
