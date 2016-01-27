@@ -13,7 +13,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
 public class LoginView extends Composite {
-	private static Password pass = new Password();
+	//private static Password pass = Password();
 
 	private static LoginViewUiBinder uiBinder = GWT
 			.create(LoginViewUiBinder.class);
@@ -39,7 +39,7 @@ public class LoginView extends Composite {
 	}
 	public String getPasswordValue(){
 		try {
-			return  pass.getSaltedHash(password.getValue());
+			//return  pass.getSaltedHash(password.getValue());
 		}
 		catch (Exception e) {
 			e.printStackTrace();

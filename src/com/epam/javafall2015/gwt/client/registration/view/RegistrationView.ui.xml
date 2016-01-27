@@ -53,7 +53,7 @@
 			<tr>
 				<td>Gender</td>
 				<td>
-					<g:ListBox ui:field="gender" width = "150px">>
+					<g:ListBox ui:field="gender" width = "150px">
 						<g:item value='1'>
 							male
 						</g:item>
@@ -66,8 +66,8 @@
 			<tr>
 				<td>Sex</td>
 				<td>
-					<g:RadioButton ui:field="male" name='radiogroup' Text='Male' checked='true'/>
-					<g:RadioButton ui:field="female" name='radiogroup' Text='Female'/>
+					<g:RadioButton ui:field="male" name='radiogroup' checked='true'/>
+					<g:RadioButton ui:field="female" name='radiogroup'/>
 				</td>
 			</tr>
 			

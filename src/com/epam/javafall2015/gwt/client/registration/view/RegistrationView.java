@@ -35,6 +35,8 @@ public class RegistrationView extends Composite {
 		
 		public RegistrationView() {
 			initWidget(uiBinder.createAndBindUi(this));
+			male.setText("man");
+			female.setText("female");
 			submit_button.setText("Submit");
 		}
 		

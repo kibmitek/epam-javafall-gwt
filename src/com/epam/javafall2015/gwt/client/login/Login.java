@@ -2,7 +2,6 @@ package com.epam.javafall2015.gwt.client.login;
 import com.epam.javafall2015.gwt.client.login.request.LoginService;
 import com.epam.javafall2015.gwt.client.login.request.LoginServiceAsync;
 import com.epam.javafall2015.gwt.client.login.view.LoginView;
-import com.epam.javafall2015.gwt.client.registration.RegistrationClientImpl;
 import com.epam.javafall2015.gwt.client.registration.view.RegistrationView;
 import com.epam.javafall2015.gwt.shared.UserDTO;
 import com.google.gwt.core.client.EntryPoint;
@@ -88,7 +87,7 @@ public class Login implements EntryPoint {
 			
 			public void onSuccess(UserDTO user) {
 				if(user == null){
-					loginView.getMessage().setWidget(new HTML("Wrong! login: tutor / student"));
+					loginView.getMessage().setWidget(new HTML("Пользователь " +loginView.getEmailValue()+ " не существует в системе, либо пароль введен неверно.  Попробуйте еще раз."));
 					enableLogin();
 				} else if (user.getEmail().equals("tutor")) {
 						Window.Location.assign("/tutor/");
