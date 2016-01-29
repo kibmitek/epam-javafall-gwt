@@ -1,7 +1,8 @@
 package com.epam.javafall2015.gwt.client.login;
-import com.epam.javafall2015.gwt.client.login.request.LoginService;
-import com.epam.javafall2015.gwt.client.login.request.LoginServiceAsync;
+import com.epam.javafall2015.gwt.client.login.LoginServiceAsync;
 import com.epam.javafall2015.gwt.client.login.view.LoginView;
+import com.epam.javafall2015.gwt.client.registration.RegistrationService;
+import com.epam.javafall2015.gwt.client.registration.RegistrationServiceAsync;
 import com.epam.javafall2015.gwt.client.registration.view.RegistrationView;
 import com.epam.javafall2015.gwt.shared.UserDTO;
 import com.google.gwt.core.client.EntryPoint;
@@ -21,6 +22,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class Login implements EntryPoint {
 	private LoginView loginView = GWT.create(LoginView.class);
 	private final LoginServiceAsync loginService = GWT.create(LoginService.class);
+	
 	
 	@Override
 	public void onModuleLoad() {
@@ -57,7 +59,7 @@ public class Login implements EntryPoint {
 		loginView.getPasswordBox().addKeyUpHandler(submitHandler);
 		loginView.getRegisterLink().addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				PopupPanel pp = new PopupPanel(true);
+				PopupPanel pp = new PopupPanel(true,true);
 				pp.setWidget(new RegistrationView());
 				pp.center();
 			}
@@ -89,7 +91,7 @@ public class Login implements EntryPoint {
 				if(user == null){
 					loginView.getMessage().setWidget(new HTML("Пользователь " +loginView.getEmailValue()+ " не существует в системе, либо пароль введен неверно.  Попробуйте еще раз."));
 					enableLogin();
-				} else if (user.getEmail().equals("tutor")) {
+				} else if (user.getRole().equals("tutor")) {
 						Window.Location.assign("/tutor/");
 					}
 					 else if (user.getEmail().equals("student")) {

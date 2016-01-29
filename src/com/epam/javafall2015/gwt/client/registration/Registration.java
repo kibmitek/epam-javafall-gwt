@@ -6,19 +6,18 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
-public class RegistrationClientImpl implements RegistrationClientInt{
+public class Registration {
 
 	private final RegistrationServiceAsync registrationService;
 	private RegistrationView registrationView;
 	
-	public RegistrationClientImpl(String url){
+	public Registration(String url){
 		this.registrationService = GWT.create(RegistrationService.class);
 		ServiceDefTarget endpoint = (ServiceDefTarget) this.registrationService;
 		endpoint.setServiceEntryPoint(url);
 		this.registrationView = new RegistrationView();
 	}
 	
-	@Override
 	public UserDTO submit(String login, String email, String password, String firstName, String lastName, String gender) {
 		this.registrationService.submit(login, email, password, firstName, lastName, gender, new DefaultCallback());
 		return null;

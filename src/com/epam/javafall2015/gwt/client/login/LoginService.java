@@ -1,4 +1,4 @@
-package com.epam.javafall2015.gwt.client.login.request;
+package com.epam.javafall2015.gwt.client.login;
 
 import com.epam.javafall2015.gwt.shared.UserDTO;
 import com.google.gwt.user.client.rpc.RemoteService;

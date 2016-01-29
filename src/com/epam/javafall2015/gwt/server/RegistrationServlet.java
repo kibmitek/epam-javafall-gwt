@@ -3,6 +3,7 @@ package com.epam.javafall2015.gwt.server;
 import com.epam.javafall2015.gwt.client.registration.RegistrationService;
 import com.epam.javafall2015.gwt.shared.JDBCHelper;
 import com.epam.javafall2015.gwt.shared.UserDTO;
+import com.epam.javafall2015.gwt.shared.UserDTO.Role;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 public class RegistrationServlet extends RemoteServiceServlet implements RegistrationService {
@@ -40,7 +41,7 @@ public class RegistrationServlet extends RemoteServiceServlet implements Registr
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
 		user.setGender(gender);
-		user.setRole("User");
+		user.setRole(Role.STUDENT);
 		
 		jdbcHelper.storeUser(user);
 		return user;

@@ -81,7 +81,7 @@ public class JDBCHelper {
 			ps.setString(4, user.getFirstName());
 			ps.setString(5, user.getLastName());
 			ps.setString(6, user.getGender());
-			ps.setString(7, user.getRole());
+			ps.setString(7, user.getRole().toString());
 			
 			final ResultSet resultSet = ps.executeQuery();
 			if(resultSet.next()){

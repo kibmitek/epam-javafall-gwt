@@ -10,7 +10,8 @@ public class UserDTO implements IsSerializable{
 	private String firstName;
 	private String lastName;
 	private String gender;
-	private String role;
+	public enum Role{TUTOR,STUDENT};
+	private Role role;
 	
 	public int getId() {
 		return id;
@@ -54,10 +55,10 @@ public class UserDTO implements IsSerializable{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 	

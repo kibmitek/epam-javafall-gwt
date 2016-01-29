@@ -1,6 +1,6 @@
 package com.epam.javafall2015.gwt.server;
 
-import com.epam.javafall2015.gwt.client.login.request.LoginService;
+import com.epam.javafall2015.gwt.client.login.LoginService;
 import com.epam.javafall2015.gwt.shared.GUID;
 import com.epam.javafall2015.gwt.shared.JDBCHelper;
 import com.epam.javafall2015.gwt.shared.Password;

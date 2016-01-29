@@ -1,6 +1,12 @@
 package com.epam.javafall2015.gwt.client.registration.view;
 
+import com.epam.javafall2015.gwt.client.ui.web.AppLoadingView;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
@@ -38,7 +44,34 @@ public class RegistrationView extends Composite {
 			male.setText("man");
 			female.setText("female");
 			submit_button.setText("Submit");
+			submit_button.addClickHandler(new SubmitHandler());
 		}
+		
+		private class SubmitHandler implements ClickHandler, KeyUpHandler {
+			public void onClick(ClickEvent event) {
+				register();
+			}
+
+			public void onKeyUp(KeyUpEvent event) {
+				if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+					register();
+				}
+			}
+		}
+		private void register() {
+			disableButton();
+			
+		}
+
+		private void disableButton() {
+			AppLoadingView preloader = new AppLoadingView();
+			preloader.showWidget();
+			this.getSubmitButton().setText("Checking...");
+			this.getSubmitButton().setEnabled(false);
+			this.getEmailBox().setEnabled(false);
+			this.getPasswordBox().setEnabled(false);
+		}
+		
 		
 		public String getLoginValue(){
 			return login.getValue();
@@ -71,16 +104,16 @@ public class RegistrationView extends Composite {
 			return null;
 		}
 
+		public Button getSubmitButton(){
+			return submit_button;
+		}
 		
-//		public Button getSubmitButton(){
-//			return submit_button;
-//		}
-//		public TextBox getEmailBox(){
-//			return email;
-//		}
-//		public PasswordTextBox getPasswordBox(){
-//			return password;
-//		}
+		public TextBox getEmailBox(){
+			return email;
+		}
+		public PasswordTextBox getPasswordBox(){
+			return password;
+		}
 //		public SimplePanel getMessage(){
 //			return message;
 //		}
